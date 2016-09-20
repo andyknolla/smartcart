@@ -23,5 +23,27 @@ angular.module('articles').run(['Menus',
       state: 'articles.create',
       roles: ['user']
     });
+
+
+    // Add addtional menu
+    // Menus.addMenuItem('categories', {
+    //   title: 'Categories',
+    //   state: 'categories',
+    //   type: 'dropdown',
+    //   roles: ['*']
+    // });
+
+    // Add the dropdown list item
+    // Menus.addSubMenuItem('categories', 'categories', {
+    //   title: 'List categories',
+    //   state: 'categories.list'
+    // });
+
+    // Add the dropdown create item
+    // Menus.addSubMenuItem('categories', 'categories', {
+    //   title: 'Modify Categories',
+    //   state: 'categories.create',
+    //   roles: ['user']
+    // });
   }
 ]);
