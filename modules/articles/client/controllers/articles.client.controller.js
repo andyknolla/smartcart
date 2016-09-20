@@ -30,19 +30,16 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
         url: imageUrl,
         isOverlayRequired: false
       }
-
+      // Send image to OCR api
       $http({
         method: 'POST',
         data: $httpParamSerializerJQLike(data),
         url: 'https://api.ocr.space/parse/image',
         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
       }).then(function successCallback(response) {
-          // this callback will be called asynchronously
-          // when the response is available
           console.log(response);
         }, function errorCallback(response) {
-          // called asynchronously if an error occurs
-          // or server returns response with an error status.
+          console.log(response);
         });
 
     }
