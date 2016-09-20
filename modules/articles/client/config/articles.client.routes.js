@@ -1,8 +1,12 @@
 'use strict';
 
 // Setting up route
-angular.module('articles').config(['$stateProvider',
-  function ($stateProvider) {
+angular.module('articles').config(['$stateProvider', 'filepickerProvider',
+  function ($stateProvider, filepickerProvider) {
+
+    //set api key for filepicker
+    filepickerProvider.setKey('Ad7Q85ppCTby2Ydsp0qB1z');
+
     // Articles state routing
     $stateProvider
       .state('articles', {

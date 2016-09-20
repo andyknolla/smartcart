@@ -2,6 +2,16 @@
   <div class="page-header">
     <h1>New Article</h1>
   </div>
+
+  <!-- upload receipt -->
+  <h2> upload data</h2>
+  <input filepicker type="filepicker-dragdrop" data-fp-services="computer,facebook,dropbox,box" on-success="onSuccess(event.fpfile)" />
+
+  <!-- <div filepicker-preview url="" style="width:90%; height:500px"></div> -->
+
+
+
+
   <div class="col-md-12">
     <form name="articleForm" class="form-horizontal" ng-submit="create(articleForm.$valid)" novalidate>
       <fieldset>

@@ -1,9 +1,51 @@
 'use strict';
 
 // Articles controller
-angular.module('articles').controller('ArticlesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Articles',
-  function ($scope, $stateParams, $location, Authentication, Articles) {
+angular.module('articles').controller('ArticlesController', ['$scope', '$stateParams', '$location', '$http', '$httpParamSerializerJQLike', 'Authentication', 'Articles', 'filepickerService',
+  function ($scope, $stateParams, $location, $http, $httpParamSerializerJQLike, Authentication, Articles, filepickerService) {
     $scope.authentication = Authentication;
+
+    // add filepicker service
+    $scope.pickFile = pickFile;
+
+    $scope.onSuccess = onSuccess;
+
+    function pickFile(){
+      filepickerService.pick(
+          {
+            mimetype: 'image/*',
+            imageQuality: 70
+           },
+          onSuccess
+      );
+    }
+//check image quality, or validate
+
+    function onSuccess(Blob){
+      console.log(Blob.url);
+      var imageUrl = Blob.url;
+      var data = {
+        apikey: 'ac22c1eaff88957',
+        language: 'eng',
+        url: imageUrl,
+        isOverlayRequired: false
+      }
+
+      $http({
+        method: 'POST',
+        data: $httpParamSerializerJQLike(data),
+        url: 'https://api.ocr.space/parse/image',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+      }).then(function successCallback(response) {
+          // this callback will be called asynchronously
+          // when the response is available
+          console.log(response);
+        }, function errorCallback(response) {
+          // called asynchronously if an error occurs
+          // or server returns response with an error status.
+        });
+
+    }
 
     // Create new Article
     $scope.create = function (isValid) {

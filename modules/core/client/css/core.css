@@ -39,7 +39,7 @@ a:hover .header-profile-image {
 /********************   ************************/
 
 body {
-  background: hsl(0, 15%, 16%);
+  background: white;
   width: 90%;
 }
 ul {
