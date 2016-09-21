@@ -11,12 +11,12 @@
 
 
     <!-- <div filepicker-preview url="" style="width:90%; height:500px"></div> -->
-    <form id="receiptUpload" ng-repeat="price in prices track by $index" class="" ng-submit="create(articleForm.$valid)" action="index.html" method="post">
-        <label for="title">Name</label>
-        <input name="title" type="text" ng-model="title" id="title" placeholder="item name" required>
-        <!-- <div ng-messages="articleForm.title.$error" role="alert">
+    <!-- <form id="receiptUpload" ng-repeat="price in prices track by $index" class="" ng-submit="create(articleForm.$valid)" action="index.html" method="post">
+        <label for="name">Name</label>
+        <input name="name" type="text" ng-model="name" id="name" placeholder="item name" required>
+        <div ng-messages="articleForm.name.$error" role="alert">
           <p class="help-block error-text" ng-message="required">item name is required.</p>
-        </div> -->
+        </div>
       <select name="category" ng-model="category" id="category" class="" cols="30" rows="10" placeholder="category">
 
       <label for="price">Purchase price</label>
@@ -24,14 +24,14 @@
       <button type="button" ng-click="removePrice($index)" name="button">delete</button>
       <br>
     </form>
-    <input for="receiptUpload" type="submit" class="btn btn-default">
+    <input for="receiptUpload" type="submit" class="btn btn-default"> -->
 
   </div>
   <p>Or enter purchases manually...</p>
     <form name="articleForm" class="" ng-submit="create(articleForm.$valid)" novalidate>
       <fieldset>
-          <label for="title">Name</label>
-          <input name="title" type="text" ng-model="title" id="title" class="" placeholder="item name" required>
+          <label for="name">Name</label>
+          <input name="name" type="text" ng-model="name" id="name" class="" placeholder="item name" required>
           <label for="category">Category</label>
           <input type="text" name="category" ng-model="category" id="category" class="" cols="30" rows="10" placeholder="category">
           <label for="price">Price</label>
