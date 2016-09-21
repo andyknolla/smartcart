@@ -14,19 +14,19 @@ var ArticleSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  title: {
+  name: {
     type: String,
     default: '',
     trim: true,
     required: 'Title cannot be blank'
   },
-  content: {
+  category: {
     type: String,
     default: '',
     trim: true
   },
-  ticklist: {
-    type: String,
+  price: {
+    type: Number,
     default: '',
     trim: true
   },

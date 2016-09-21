@@ -14,7 +14,7 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
       filepickerService.pick(
           {
             mimetype: 'image/*',
-            imageQuality: 70
+            imageQuality: 100
            },
           onSuccess
       );
@@ -37,12 +37,23 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
         url: 'https://api.ocr.space/parse/image',
         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
       }).then(function successCallback(response) {
-          console.log(response);
+        console.log(response.data.ParsedResults[0].ParsedText);
+          var prices = response.data.ParsedResults[0].ParsedText;
+          console.log(prices.match(/[0-9]+\.[0-9][0-9](?:[^0-9]|$)/g));
+           $scope.prices = prices.match(/[0-9]+\.[0-9][0-9](?:[^0-9]|$)/g);
         }, function errorCallback(response) {
           console.log(response);
         });
 
     }
+
+    // function for removing price from list
+      $scope.removePrice = function($index) {
+        console.log($index)
+        $scope.prices.splice($index,1);
+      }
+
+
 
     // Create new Article
     $scope.create = function (isValid) {
@@ -56,9 +67,9 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
 
       // Create new Article object
       var article = new Articles({
-        title: this.title,
-        content: this.content,
-        ticklist: this.ticklist
+        name: this.name,
+        category: this.category,
+        price: this.price
       });
 
       // Redirect after save
@@ -66,9 +77,9 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
         $location.path('articles/' + response._id);
 
         // Clear form fields
-        $scope.title = '';
-        $scope.content = '';
-        $scope.ticklist = '';
+        $scope.name = '';
+        $scope.category = '';
+        $scope.price = '';
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;
       });

@@ -48,3 +48,7 @@ ul {
 .form-horizontal {
   width: 30%;
 }
+.receiptUpload {
+  margin: 15px 15px 15px 5px;
+  padding: 15px;
+}

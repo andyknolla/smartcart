@@ -10,9 +10,9 @@
         by
         <span ng-bind="article.user.displayName"></span>
       </small> -->
-      <span class="list-group-item-heading" ng-bind="article.title"> </span>&nbsp;$<span class="list-group-item-text" ng-bind="article.content"></span>
+      <span class="list-group-item-heading" ng-bind="article.name"> </span>&nbsp;$<span class="list-group-item-text" ng-bind="article.category"></span>
 
-      <p class="list-group-item-text" ng-bind="article.ticklist"></p>
+      <p class="list-group-item-text" ng-bind="article.price"></p>
     </a>
   </div>
   <div class="alert alert-warning text-center" ng-if="articles.$resolved && !articles.length">
