@@ -69,7 +69,8 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
       var article = new Articles({
         name: this.name,
         category: this.category,
-        price: this.price
+        price: this.price,
+        date: this.date
       });
 
       // Redirect after save

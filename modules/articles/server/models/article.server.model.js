@@ -10,9 +10,9 @@ var mongoose = require('mongoose'),
  * Article Schema
  */
 var ArticleSchema = new Schema({
-  created: {
+  date: {
     type: Date,
-    default: Date.now
+    default: ''
   },
   name: {
     type: String,
@@ -30,6 +30,7 @@ var ArticleSchema = new Schema({
     default: '',
     trim: true
   },
+
   user: {
     type: Schema.ObjectId,
     ref: 'User'

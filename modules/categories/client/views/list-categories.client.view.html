@@ -6,13 +6,13 @@
     <a ng-repeat="category in vm.categories"
        ui-sref="categories.view({ categoryId: category._id })"
        class="list-group-item">
-      <small class="list-group-item-text">
-        Posted on
-        <span ng-bind="category.created | date:'mediumDate'"></span>
+      <!-- <small class="list-group-item-text">
+        posted on
+        <span ng-bind="category.created | date:'mediumdate'"></span>
         by
-        <span ng-if="category.user" ng-bind="category.user.displayName"></span>
+        <span ng-if="category.user" ng-bind="category.user.displayname"></span>
         <span ng-if="!category.user">Deleted User</span>
-      </small>
+      </small> -->
       <h4 class="list-group-item-heading" ng-bind="category.name"></h4>
     </a>
   </div>

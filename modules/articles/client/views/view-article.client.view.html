@@ -14,24 +14,8 @@
       <i class="glyphicon glyphicon-trash"></i>
     </a>
   </div>
+  <span class="lead">Item name: </span><span class="lead" ng-bind="article.name"></span><br>
+  <span class="lead">Category: </span><span class="lead" ng-bind="article.category"></span><br>
+  <span class="lead">Price: $</span><span class="lead" ng-bind="article.price"></span>
 
-  <!-- <small>
-    <em class="text-muted">
-      Posted on
-      <span ng-bind="article.created | date:'mediumDate'"></span>
-      by
-      <span ng-bind="article.user.displayName"></span>
-    </em>
-  </small>
--->
-  <p class="lead" ng-bind="article.category"></p>
-  <p class="lead" ng-bind="article.price"></p>
-
-        <p class="lead" ng-bind="article.ticklist"></p>
-
-  <div class="title">
-    <p ng-bind='article.name'></p>
-    <p ng-bind='article.created'></p>
-  </div>
-
-    </section>
+</section>

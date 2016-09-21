@@ -42,13 +42,68 @@ body {
   background: white;
   width: 90%;
 }
+/*   Home page    */
+.logo {
+  border-radius: 60%;
+  margin-right: 70px;
+  box-shadow: 10px 10px 50px gray;
+}
+.pageTitle {
+  align-self: center;
+  font-size: 8rem;
+  text-shadow: 3px 3px 5px gray;
+}
+.titleGroup {
+  display: flex;
+  flex-direction: column;
+}
+.homeHeader {
+  display: flex;
+  flex-direction: row;
+  margin: 30px;
+  margin-bottom: 50px;
+}
+.subtitle {
+  font-size: 3rem;
+}
+.subsubtitle {
+  font-size: 2rem;
+}
+.homeGraph {
+  margin: 20px;
+  margin-left: 50px;
+  box-shadow: 10px 10px 50px gray;
+}
+.homeGraphDescription {
+  font-size: 2rem;
+  margin: 20px;
+  margin-left: 50px;
+}
+
 ul {
   list-style-type: none;
 }
-.form-horizontal {
-  width: 30%;
+
+/*    purchase list      */
+.tableItem {
+  margin-left: 10px;
+  margin-right: 15%;
+  padding-right: 15%;
 }
-.receiptUpload {
+.tableItemPrice {
+  margin-right: 15%;
+}
+
+
+/*   purchase entry page   */
+.form-horizontal {
+  width: 70%;
+}
+#receiptUpload {
   margin: 15px 15px 15px 5px;
   padding: 15px;
+  width: 700px;
+}
+.receiptUploadRow {
+  display: inline;
 }

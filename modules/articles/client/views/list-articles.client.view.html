@@ -2,18 +2,33 @@
   <div class="page-header">
     <h1>Purchases</h1>
   </div>
-  <div class="list-group">
-    <a ng-repeat="article in articles" ui-sref="articles.view({articleId: article._id})" class="list-group-item">
-      <!-- <small class="list-group-item-text">
-        Posted on
-        <span ng-bind="article.created | date:'mediumDate'"></span>
-        by
-        <span ng-bind="article.user.displayName"></span>
-      </small> -->
-      <span class="list-group-item-heading" ng-bind="article.name"> </span>&nbsp;$<span class="list-group-item-text" ng-bind="article.category"></span>
+  <div >
+    <table class="table table-striped">
+      <tr>
+        <th>product name</th>
+        <th>category</th>
+        <th>price</th>
+        <th>edit/delete</th>
+      </tr>
+    </table>
+        <a  ng-repeat="article in articles" ui-sref="articles.view({articleId: article._id})">
+          <span class="tableItem" ng-bind="article.name"> {{ article.name }}</span>
+          <span class="tableItemPrice" ng-bind="article.category"></span>
+          <span class="tableItem" ng-bind="article.price"></span>
+<br>
+          <!-- <td>
+            <span ng-show="authentication.user._id == article.user._id">
+              <a class="btn btn-primary" ui-sref="articles.edit({articleId: article._id})">
+                <i class="glyphicon glyphicon-edit"></i>
+              </a>
+              <a class="btn btn-primary" ng-click="remove();">
+                <i class="glyphicon glyphicon-trash"></i>
+              </a>
+            </span>
+          </td> -->
+        </a>
 
-      <p class="list-group-item-text" ng-bind="article.price"></p>
-    </a>
+
   </div>
   <div class="alert alert-warning text-center" ng-if="articles.$resolved && !articles.length">
     No articles yet, why don't you <a ui-sref="articles.create">create one</a>?
