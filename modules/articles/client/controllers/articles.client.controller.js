@@ -65,7 +65,7 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
 
         return false;
       }
-
+console.log($scope.category)
       // Create new Article object
       var article = new Articles({
         name: this.name,
@@ -77,6 +77,7 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
       // Redirect after save
       article.$save(function (response) {
         $location.path('articles/' + response._id);
+      //  console.log(article);
 
         // Clear form fields
         $scope.name = '';

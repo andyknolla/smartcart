@@ -17,7 +17,7 @@
 
     <div class="well" id="receiptUpload">
 
-      <form name="articleForm" id="receiptUpload" class="" ng-submit="create(articleForm.$valid)" novalidate>
+      <form name="articleForm" id="receiptUpload" class="" ng-submit="create(articleForm)" novalidate>
         <fieldset>
           <div class="receiptDate">
             <h2>Data from your uploaded receipt</h2>
@@ -41,9 +41,13 @@
               <td>
                 <select name="category" ng-model="category" id="category" class="categoryInput" cols="30" rows="10" placeholder="category">
                   <option value="" disabled selected>category</option>
-                  <option value="produce">Produce</option>
-                  <option value="frozen">Frozen</option>
-                  <option value="junk">Junk</option>
+                  <option value="Produce">Produce</option>
+                  <option value="Frozen">Frozen</option>
+                  <option value="Junk">Junk</option>
+                  <option value="Meat">Meat</option>
+                  <option value="Beverages">Beverages</option>
+                  <option value="Home products">Home Products</option>
+                  <option value="Dry Goods">Dry Goods</option>
                 </select>
               </td>
               <td>
@@ -78,13 +82,13 @@
         <label for="category">Category</label>
         <select name="category" ng-model="category" id="category" class="" cols="30" rows="10" placeholder="category">
           <option value="" disabled selected>category</option>
-          <option value="produce">Produce</option>
-          <option value="frozen">Frozen</option>
-          <option value="meat">Meat</option>
-          <option value="junk">Junk</option>
-          <option value="beverages">Beverages</option>
-          <option value="dry_goods">Dry goods</option>
-          <option value="home products">Home Products</option>
+          <option value="Produce">Produce</option>
+          <option value="Frozen">Frozen</option>
+          <option value="Meat">Meat</option>
+          <option value="Junk">Junk</option>
+          <option value="Beverages">Beverages</option>
+          <option value="Dry goods">Dry goods</option>
+          <option value="Home products">Home Products</option>
 
         </select>
         <label for="price">Price</label>
