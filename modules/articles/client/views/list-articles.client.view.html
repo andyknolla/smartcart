@@ -3,7 +3,7 @@
     <h1>Purchases</h1>
   </div>
   <div>
-    <table class="table table-striped">
+    <table class="table table-striped purchaseTable">
       <tr>
         <th>product name</th>
         <th>category</th>
@@ -13,8 +13,8 @@
       <tr ng-repeat="article in articles | orderBy : 'category'" ui-sref="articles.view({articleId: article._id})">
         <!-- <a ng-repeat="article in articles" ui-sref="articles.view({articleId: article._id})">  -->
         <td class="tableItem" ng-bind="article.name"> {{ article.name }}</td>
-        <td class="tableItemPrice" ng-bind="article.category"></td>
-        <td class="tableItem" ng-bind="article.price"></td>
+        <td class="tableItem" ng-bind="article.category"></td>
+        <td class="tableItemPrice" ng-bind="article.price"></td>
       </tr>
     </table>
     <!-- <td>
