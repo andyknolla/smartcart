@@ -8,7 +8,9 @@
     <div class="well filepickerBox">
       <h2> Upload a receipt</h2>
       <p>Save yourself some typing by uploading a photo of your receipt</p>
-      <input class="filepicker" filepicker type="filepicker-dragdrop" data-fp-services="computer,facebook,dropbox,box" on-success="onSuccess(event.fpfile)" />
+      <div class="myfilepicker">
+        <input filepicker type="filepicker-dragdrop" data-fp-services="computer,facebook,dropbox,box" on-success="onSuccess(event.fpfile)" />
+      </div>
     </div>
 
     <!-- <div filepicker-preview url="" style="width:90%; height:500px"></div> -->

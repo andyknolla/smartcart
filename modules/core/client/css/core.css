@@ -119,8 +119,9 @@ ul {
 
 }
 ]
-.filepicker {
+.myfilepicker {
   margin: 20px 0 20px 0;
+  height: 200px !important;
 }
 .receiptDate {
   margin: 10px 0 10px 0;
