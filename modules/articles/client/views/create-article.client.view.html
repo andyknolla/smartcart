@@ -5,71 +5,95 @@
 
   <!-- upload receipt -->
   <div class="receiptUpload">
-    <h2> upload a receipt</h2>
-    <p>Save yourself some typing by uploading a photo of your receipt, so we can grab the numbers</p>
-    <input filepicker type="filepicker-dragdrop" data-fp-services="computer,facebook,dropbox,box" on-success="onSuccess(event.fpfile)" />
-
+    <div class="well filepickerBox">
+      <h2> Upload a receipt</h2>
+      <p>Save yourself some typing by uploading a photo of your receipt</p>
+      <input class="filepicker" filepicker type="filepicker-dragdrop" data-fp-services="computer,facebook,dropbox,box" on-success="onSuccess(event.fpfile)" />
+    </div>
 
     <!-- <div filepicker-preview url="" style="width:90%; height:500px"></div> -->
 
     <!--   receipt read upload form    -->
-    <form name="articleForm" id="receiptUpload"  class="" ng-submit="create(articleForm.$valid)" novalidate>
-      <fieldset>
-        <div class="">
-          <label for="date">Date</label>
-          <input type="date" name="date" id="date" ng-model="date">
-        </div>
 
-          <div ng-repeat-start="price in prices track by $index" class="receiptUploadRow">
-            <label for="name">Name</label>
-            <input name="name" type="text" ng-model="name" id="name" placeholder="item name" required>
-            <!-- <div ng-messages="articleForm.name.$error" role="alert">
+    <div class="well" id="receiptUpload">
+
+      <form name="articleForm" id="receiptUpload" class="" ng-submit="create(articleForm.$valid)" novalidate>
+        <fieldset>
+          <div class="receiptDate">
+            <h2>Data from your uploaded receipt</h2>
+            <label for="date">Date for this receipt: </label>
+            <input type="date" name="date" id="date" ng-model="date">
+          </div>
+          <table class="receiptUploadTable">
+            <tr>
+              <th class="tableheadCol">Item Name</th>
+              <th class="tableheadCol">Category</th>
+              <th class="tableheadPrice">Price</th>
+              <th>Delete</th>
+            </tr>
+            <tr ng-repeat="price in prices track by $index" class="receiptUploadRow" ng-class-even="'grayrow'">
+              <td>
+                <input name="name" type="text" ng-model="name" id="name" placeholder="item name" required>
+                <!-- <div ng-messages="articleForm.name.$error" role="alert">
               <p class="help-block error-text" ng-message="required">item name is required.</p>
             </div> -->
-          </div>
-          <label for="category">Category</label>
-          <select name="category" ng-model="category" id="category" class="receiptUploadRow" cols="30" rows="10" placeholder="category">
-            <option  value="" disabled selected>category</option>
-            <option value="produce">Produce</option>
-            <option value="frozen">Frozen</option>
-            <option value="junk">Junk</option>
-          </select>
-          <div class="receiptUploadRow">
-            <label for="price">Purchase price</label>
-            <input type="text" name="price" id="price" ng-model="price">
-          </div>
-
-          <button ng-repeat-end="price in prices track by $index"type="button" class="receiptUploadRow" ng-click="removePrice($index)" name="button">delete</button>
-          <br>
+              </td>
+              <td>
+                <select name="category" ng-model="category" id="category" class="categoryInput" cols="30" rows="10" placeholder="category">
+                  <option value="" disabled selected>category</option>
+                  <option value="produce">Produce</option>
+                  <option value="frozen">Frozen</option>
+                  <option value="junk">Junk</option>
+                </select>
+              </td>
+              <td>
+                <div class="receiptUploadRow">
+                  <input class="priceInput" type="text" name="price" id="price" ng-model="price">
+                </div>
+              </td>
+              <td>
+                <button type="button" class="" ng-click="removePrice($index)" name="button"><span class="glyphicon glyphicon-trash purchaseDeleteButton"></span></button>
+              </td>
+            </tr>
+          </table>
           <input form="receiptUpload" type="submit" class="btn btn-default">
 
-    </fieldset>
-    </form>
+        </fieldset>
+      </form>
+      <div class="receiptImageContainer">
+        <div class="receiptPlaceholder" ng-show="!imageUrl">
+          <p>Your uploaded receipt will appear here!</p>
+        </div>
+        <img ng-src="{{imageUrl}}" class="receiptImage">
 
+      </div>
+    </div>
   </div>
-  <p>Or enter purchases manually...</p>
+  <div class="well receiptManualEntry">
+    <p>Or enter purchases manually...</p>
     <form name="articleForm" class="" ng-submit="create(articleForm.$valid)" novalidate>
       <fieldset>
-          <label for="name">Name</label>
-          <input name="name" type="text" ng-model="name" id="name" class="" placeholder="item name" required>
-          <label for="category">Category</label>
-          <select name="category" ng-model="category" id="category" class="" cols="30" rows="10" placeholder="category">
-            <option  value="" disabled selected>category</option>
-            <option value="produce">Produce</option>
-            <option value="frozen">Frozen</option>
-            <option value="meat">Meat</option>
-            <option value="junk">Junk</option>
-            <option value="beverages">Beverages</option>
-            <option value="dry_goods">Dry goods</option>
-            <option value="home products">Home Products</option>
+        <label for="name">Name</label>
+        <input name="name" type="text" ng-model="name" id="name" class="" placeholder="item name" required>
+        <label for="category">Category</label>
+        <select name="category" ng-model="category" id="category" class="" cols="30" rows="10" placeholder="category">
+          <option value="" disabled selected>category</option>
+          <option value="produce">Produce</option>
+          <option value="frozen">Frozen</option>
+          <option value="meat">Meat</option>
+          <option value="junk">Junk</option>
+          <option value="beverages">Beverages</option>
+          <option value="dry_goods">Dry goods</option>
+          <option value="home products">Home Products</option>
 
-          </select>
-          <label for="price">Price</label>
-          <input type="text" name="price" ng-model="price" id="price" class="" cols="30" rows="10" placeholder="price">
-          <label for="date">Date</label>
-          <input type="date" name="date" id="date" ng-model="date">
-          <input type="submit" class="btn btn-default">
-          <strong ng-bind="error"></strong>
+        </select>
+        <label for="price">Price</label>
+        <input type="text" name="price" ng-model="price" id="price" class="priceInput" cols="30" rows="10" placeholder="price">
+        <label for="date">Date</label>
+        <input type="date" name="date" id="date" ng-model="date">
+        <input type="submit" class="btn btn-default">
+        <strong ng-bind="error"></strong>
       </fieldset>
     </form>
+  </div>
 </section>

@@ -24,6 +24,7 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
     function onSuccess(Blob){
       console.log(Blob.url);
       var imageUrl = Blob.url;
+      $scope.imageUrl = imageUrl;
       var data = {
         apikey: 'ac22c1eaff88957',
         language: 'eng',

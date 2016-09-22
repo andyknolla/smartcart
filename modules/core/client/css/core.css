@@ -42,6 +42,12 @@ body {
   background: white;
   width: 90%;
 }
+p {
+  font-size: 1.7rem;
+}
+select {
+  height: 50px;
+}
 /*   Home page    */
 .logo {
   border-radius: 5px;
@@ -103,10 +109,64 @@ ul {
   width: 70%;
 }
 #receiptUpload {
-  margin: 15px 15px 15px 5px;
-  padding: 15px;
-  width: 700px;
+  display: flex;
+}
+.filepickerBox {
+
+}
+]
+.filepicker {
+  margin: 20px 0 20px 0;
+}
+.receiptDate {
+  margin: 10px 0 10px 0;
 }
 .receiptUploadRow {
-  display: inline;
+  margin-bottom: 3px;
+}
+.receiptUploadTable {
+  margin-right: 30px;
+}
+.categoryInput {
+  width: 90px;
+  height: 30px;
+}
+.priceInput {
+  width: 80px;
+
+}
+.purchaseDeleteButton {
+  width: 40px;
+}
+.receiptPlaceholder {
+  border: 1px solid black;
+  width: 330px;
+  height: 300px;
+  margin-left: 25px;
+  padding: 40px;
+}
+.receiptImage {
+  width: 330px;
+  margin-top: 80px;
+}
+.reeiptImageContainer {
+  height: 300px;
+  overflow: scroll;
+  margin-left: 25px;
+  margin-top: 60px;
+}
+.tableheadCol {
+  width:100px;
+}
+.tableheadPrice {
+  width: 100px;
+}
+.grayrow {
+  background: ;
+}
+#category, #name, #price {
+  margin-right: 10px;
+}
+.receiptManualEntry {
+
 }
