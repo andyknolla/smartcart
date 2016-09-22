@@ -2,21 +2,22 @@
   <div class="page-header">
     <h1>Purchases</h1>
   </div>
-  <div >
+  <div>
     <table class="table table-striped">
       <tr>
         <th>product name</th>
         <th>category</th>
         <th>price</th>
-        <th>edit/delete</th>
+      </tr>
+
+      <tr ng-repeat="article in articles | orderBy : 'category'" ui-sref="articles.view({articleId: article._id})">
+        <!-- <a ng-repeat="article in articles" ui-sref="articles.view({articleId: article._id})">  -->
+        <td class="tableItem" ng-bind="article.name"> {{ article.name }}</td>
+        <td class="tableItemPrice" ng-bind="article.category"></td>
+        <td class="tableItem" ng-bind="article.price"></td>
       </tr>
     </table>
-        <a  ng-repeat="article in articles" ui-sref="articles.view({articleId: article._id})">
-          <span class="tableItem" ng-bind="article.name"> {{ article.name }}</span>
-          <span class="tableItemPrice" ng-bind="article.category"></span>
-          <span class="tableItem" ng-bind="article.price"></span>
-<br>
-          <!-- <td>
+    <!-- <td>
             <span ng-show="authentication.user._id == article.user._id">
               <a class="btn btn-primary" ui-sref="articles.edit({articleId: article._id})">
                 <i class="glyphicon glyphicon-edit"></i>
@@ -25,8 +26,8 @@
                 <i class="glyphicon glyphicon-trash"></i>
               </a>
             </span>
-          </td> -->
-        </a>
+          </td>
+        </a> -->
 
 
   </div>

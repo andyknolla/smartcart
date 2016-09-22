@@ -44,9 +44,9 @@ body {
 }
 /*   Home page    */
 .logo {
-  border-radius: 60%;
+  border-radius: 5px;
   margin-right: 70px;
-  box-shadow: 10px 10px 50px gray;
+  /*box-shadow: 10px 10px 50px gray;*/
 }
 .pageTitle {
   align-self: center;
@@ -93,7 +93,10 @@ ul {
 .tableItemPrice {
   margin-right: 15%;
 }
-
+/*   category list     */
+.categoryList {
+  width: 40%;
+}
 
 /*   purchase entry page   */
 .form-horizontal {
