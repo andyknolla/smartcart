@@ -1,13 +1,113 @@
-<section ng-controller="HomeController">
-<div class="homeHeader">
-  <img class="logo" src="http://thekittchen.com/wp-content/uploads/2013/01/grocery_bag_with_money.gif" width="270px" height="270px" alt="" />
-  <div class="titleGroup">
-    <h1 class="pageTitle" >Smart Cart</h1>
-    <p class="subtitle" >Personal Finance App</p>
-    <p class="subsubtitle" >Track your grocery spending</p>
+<section ng-controller="HomeController" class="container-fluid">
+  <div class="homeHeader">
+    <img class="logo" src="http://thekittchen.com/wp-content/uploads/2013/01/grocery_bag_with_money.gif" width="270px" height="270px" alt="" />
+    <div class="titleGroup">
+      <h1 class="pageTitle">Smart Cart</h1>
+      <p class="subtitle">Personal Finance App</p>
+      <p class="subsubtitle">Track your grocery spending</p>
+    </div>
   </div>
-</div>
-  <p class="homeGraphDescription">Track your budgeting progress over time</p>
-  <img class="homeGraph" src="http://community.microstrategy.com/legacyfs/online/UploadContent/45k/TN42448_TN42448_0.PNG" width="700px" height="300px" alt="" />
+  <p class="homeGraphDescription">Smart Cart uses Optical Character Recognition technology to help you record your purchase information</p>
+
+  <div ng-controller="ArticlesController">
+    <div class="row">
+
+      <div class="receiptUpload col-md-5">
+        <div class="well filepickerBox">
+          <h2> Upload a receipt</h2>
+          <p>Save yourself some typing by uploading a photo of your receipt</p>
+          <div class="myfilepicker">
+            <input filepicker type="filepicker-dragdrop" data-fp-services="computer,facebook,dropbox,url,box" on-success="onSuccess(event.fpfile)" />
+          </div>
+        </div>
+      </div>
+
+
+      <div class="well demoDescription col-md-7">
+        <p> Try it out!</p>
+        <p>Don't have a receipt image saved on your computer? Just grab an image URL from a Google image search and click on Link&lpar;URL&rpar;. Or, here are a couple examples.</p>
+        <ul>
+          <li>Copy one of them</li>
+          <li>click on "Upload a receipt", "Pick File"</li>
+          <li>then click on the Link&lpar;URL&rpar; option on the left side of the pop-up.</li>
+        </ul>
+        <ul>
+          <li><img width="50px" src="http://66.media.tumblr.com/tumblr_l9ncmsIjiM1qz4tu7o1_500.jpg">example image url&colon; http://66.media.tumblr.com/tumblr_l9ncmsIjiM1qz4tu7o1_500.jpg </li>
+          <li><img width="50px" src="http://vignette2.wikia.nocookie.net/groceryreceipts/images/8/80/Grocery_receipts_001.jpg/revision/latest?cb=20111106201148">example image url&colon; <small>http://vignette2.wikia.nocookie.net/groceryreceipts/images/8/80/Grocery_receipts_001.jpg/revision/latest?cb=20111106201148</small></li>
+        </ul>
+      </div>
+    </div>
+
+
+    <!-- <div filepicker-preview url="" style="width:90%; height:500px"></div> -->
+
+    <!--   receipt read upload form    -->
+
+    <div class="well" id="receiptUpload">
+
+      <form name="articleForm" id="receiptUpload" class="" ng-submit="create(articleForm)" novalidate>
+        <fieldset>
+          <div class="receiptDate">
+            <h2>Data from your uploaded receipt</h2>
+            <label for="date">Date for this receipt: </label>
+            <p ng-show="imageUrl">Now go through and correct any mistakes</p>
+            <input type="date" name="date" id="date" ng-model="date">
+          </div>
+          <table class="receiptUploadTable">
+            <tr>
+              <th class="tableheadCol">Item Name</th>
+              <th class="tableheadCol">Category</th>
+              <th class="tableheadPrice">Price</th>
+              <th>Delete</th>
+            </tr>
+            <tr ng-repeat="price in prices track by $index" class="receiptUploadRow" ng-class-even="'grayrow'">
+              <td>
+                <input name="name" type="text" ng-model="name" id="name" placeholder="item name" required>
+                <!-- <div ng-messages="articleForm.name.$error" role="alert">
+                <p class="help-block error-text" ng-message="required">item name is required.</p>
+              </div> -->
+              </td>
+              <td>
+                <select name="category" ng-model="category" id="category" class="categoryInput" cols="30" rows="10" placeholder="category">
+                  <option value="" disabled selected>category</option>
+                  <option value="Produce">Produce</option>
+                  <option value="Frozen">Frozen</option>
+                  <option value="Junk">Junk</option>
+                  <option value="Meat">Meat</option>
+                  <option value="Beverages">Beverages</option>
+                  <option value="Home products">Home Products</option>
+                  <option value="Dry Goods">Dry Goods</option>
+                </select>
+              </td>
+              <td>
+                <div class="receiptUploadRow">
+                  <input class="priceInput" type="text" name="price" id="price" ng-model="price">
+                </div>
+              </td>
+              <td>
+                <button type="button" class="" ng-click="removePrice($index)" name="button"><span class="glyphicon glyphicon-trash purchaseDeleteButton"></span></button>
+              </td>
+            </tr>
+          </table>
+          <button type="button" ng-click="login()"></button>
+
+        </fieldset>
+      </form>
+      <div class="receiptImageContainer">
+        <div class="receiptPlaceholder" ng-show="!imageUrl">
+          <p>Your uploaded receipt will appear here!</p>
+        </div>
+        <img ng-src="{{imageUrl}}" class="receiptImage">
+
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+  </div>
+
+
+  <!-- <img class="homeGraph" src="http://community.microstrategy.com/legacyfs/online/UploadContent/45k/TN42448_TN42448_0.PNG" width="700px" height="300px" alt="" /> -->
 
 </section>
