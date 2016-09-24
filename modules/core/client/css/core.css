@@ -108,17 +108,54 @@ ul {
   width: 40%;
 }
 
+
+
 /*   purchase entry page   */
 .form-horizontal {
   width: 70%;
 }
-#receiptUpload {
+.demobox {
   display: flex;
+  flex-direction: row;
+  width: 80%;
+}
+.demo2 {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+.demo3 {
+  display: flex;
+  flex-direction: column;
+}
+.demo4 {
+  display: flex;
+  flex-direction: row;
+}
+.demo5 {
+  display: flex;
+  flex-direction: column;
+}
+.demo5 p {
+  display: flex;
+  align-self:flex-end;
+}
+.demo6 {
+  margin-left: 10px;
+}
+.demo8 {
+  display: flex;
+  flex-direction: row;
+}
+.demo8 p {
+  margin-right: 10px;
 }
 .filepickerBox {
 
 }
-]
+
+
+
 .myfilepicker {
   margin: 20px 0 20px 0;
   height: 200px !important;
@@ -176,6 +213,10 @@ ul {
 }
 .demoDescription {
   width: ;
+}
+.secondExample {
+  display: flex;
+  flex-direction: row;
 }
 .receiptManualEntry {
 

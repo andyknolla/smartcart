@@ -10,10 +10,12 @@
   <p class="homeGraphDescription">Smart Cart uses Optical Character Recognition technology to help you record your purchase information</p>
 
   <div ng-controller="ArticlesController">
-    <div class="row">
 
-      <div class="receiptUpload col-md-5">
-        <div class="well filepickerBox">
+
+    <div class="demobox">
+
+      <div class="demo1">
+        <div class="filepickerBox">
           <h2> Upload a receipt</h2>
           <p>Save yourself some typing by uploading a photo of your receipt</p>
           <div class="myfilepicker">
@@ -22,85 +24,107 @@
         </div>
       </div>
 
+      <div class="demo2">
+        <div class="demo3">
+          <p> Try it out!</p>
+          <p>Don't have a receipt image saved on your computer? Just grab an image URL from a Google image search and click on Link&lpar;URL&rpar;. Or, here are a couple examples.</p>
+          <ul>
+            <li>Copy one of them</li>
+            <li>click on "Upload a receipt", "Pick File"</li>
+            <li>then click on the Link&lpar;URL&rpar; option on the left side of the pop-up.</li>
+          </ul>
+        </div>
 
-      <div class="well demoDescription col-md-7">
-        <p> Try it out!</p>
-        <p>Don't have a receipt image saved on your computer? Just grab an image URL from a Google image search and click on Link&lpar;URL&rpar;. Or, here are a couple examples.</p>
-        <ul>
-          <li>Copy one of them</li>
-          <li>click on "Upload a receipt", "Pick File"</li>
-          <li>then click on the Link&lpar;URL&rpar; option on the left side of the pop-up.</li>
-        </ul>
-        <ul>
-          <li><img width="50px" src="http://66.media.tumblr.com/tumblr_l9ncmsIjiM1qz4tu7o1_500.jpg">example image url&colon; http://66.media.tumblr.com/tumblr_l9ncmsIjiM1qz4tu7o1_500.jpg </li>
-          <li><img width="50px" src="http://vignette2.wikia.nocookie.net/groceryreceipts/images/8/80/Grocery_receipts_001.jpg/revision/latest?cb=20111106201148">example image url&colon; <small>http://vignette2.wikia.nocookie.net/groceryreceipts/images/8/80/Grocery_receipts_001.jpg/revision/latest?cb=20111106201148</small></li>
-        </ul>
+        <div class="demo4">
+
+
+
+            <div class="demo5">
+              <p>example image url&colon;<br> <small>http://66.media.tumblr.com/tumblr_l9ncmsIjiM1qz4tu7o1_500.jpg</small></p>
+
+
+              <div class="demo8">
+                <p>example image url&colon;<br> <small>http://vignette2.wikia.nocookie.net/groceryreceipts/images/<br>8/80/Grocery_receipts_001.jpg/revision/latest?cb=20111106201148</small></p>
+                <img height="100px" src="http://vignette2.wikia.nocookie.net/groceryreceipts/images/8/80/Grocery_receipts_001.jpg/revision/latest?cb=20111106201148">
+              </div>
+
+            </div>
+
+            <div class="demo6">
+              <img width="50px" height="100px" src="http://66.media.tumblr.com/tumblr_l9ncmsIjiM1qz4tu7o1_500.jpg">
+            </div>
+          </div>
+
+        </div>
       </div>
+
+
     </div>
 
 
-    <!-- <div filepicker-preview url="" style="width:90%; height:500px"></div> -->
 
-    <!--   receipt read upload form    -->
+  <!-- <div filepicker-preview url="" style="width:90%; height:500px"></div> -->
 
-    <div class="well" id="receiptUpload">
+  <!--   receipt read upload form    -->
 
-      <form name="articleForm" id="receiptUpload" class="" ng-submit="create(articleForm)" novalidate>
-        <fieldset>
-          <div class="receiptDate">
-            <h2>Data from your uploaded receipt</h2>
-            <label for="date">Date for this receipt: </label>
-            <p ng-show="imageUrl">Now go through and correct any mistakes</p>
-            <input type="date" name="date" id="date" ng-model="date">
-          </div>
-          <table class="receiptUploadTable">
-            <tr>
-              <th class="tableheadCol">Item Name</th>
-              <th class="tableheadCol">Category</th>
-              <th class="tableheadPrice">Price</th>
-              <th>Delete</th>
-            </tr>
-            <tr ng-repeat="price in prices track by $index" class="receiptUploadRow" ng-class-even="'grayrow'">
-              <td>
-                <input name="name" type="text" ng-model="name" id="name" placeholder="item name" required>
-                <!-- <div ng-messages="articleForm.name.$error" role="alert">
+  <div class="well" id="receiptUpload">
+
+    <form name="articleForm" id="receiptUpload" class="" ng-submit="create(articleForm)" novalidate>
+      <fieldset>
+        <div class="receiptDate">
+          <h2>Data from your uploaded receipt</h2>
+          <label for="date">Date for this receipt: </label>
+          <p ng-show="imageUrl">Now go through and correct any mistakes</p>
+          <input type="date" name="date" id="date" ng-model="date">
+        </div>
+        <table class="receiptUploadTable">
+          <tr>
+            <th class="tableheadCol">Item Name</th>
+            <th class="tableheadCol">Category</th>
+            <th class="tableheadPrice">Price</th>
+            <th>Delete</th>
+          </tr>
+          <tr ng-repeat="price in prices track by $index" class="receiptUploadRow" ng-class-even="'grayrow'">
+            <td>
+              <input name="name" type="text" ng-model="name" id="name" placeholder="item name" required>
+              <!-- <div ng-messages="articleForm.name.$error" role="alert">
                 <p class="help-block error-text" ng-message="required">item name is required.</p>
               </div> -->
-              </td>
-              <td>
-                <select name="category" ng-model="category" id="category" class="categoryInput" cols="30" rows="10" placeholder="category">
-                  <option value="" disabled selected>category</option>
-                  <option value="Produce">Produce</option>
-                  <option value="Frozen">Frozen</option>
-                  <option value="Junk">Junk</option>
-                  <option value="Meat">Meat</option>
-                  <option value="Beverages">Beverages</option>
-                  <option value="Home products">Home Products</option>
-                  <option value="Dry Goods">Dry Goods</option>
-                </select>
-              </td>
-              <td>
-                <div class="receiptUploadRow">
-                  <input class="priceInput" type="text" name="price" id="price" ng-model="price">
-                </div>
-              </td>
-              <td>
-                <button type="button" class="" ng-click="removePrice($index)" name="button"><span class="glyphicon glyphicon-trash purchaseDeleteButton"></span></button>
-              </td>
-            </tr>
-          </table>
-          <button type="button" ng-click="login()"></button>
+            </td>
+            <td>
+              <select name="category" ng-model="category" id="category" class="categoryInput" cols="30" rows="10" placeholder="category">
+                <option value="" disabled selected>category</option>
+                <option value="Produce">Produce</option>
+                <option value="Frozen">Frozen</option>
+                <option value="Junk">Junk</option>
+                <option value="Meat">Meat</option>
+                <option value="Beverages">Beverages</option>
+                <option value="Home products">Home Products</option>
+                <option value="Dry Goods">Dry Goods</option>
+              </select>
+            </td>
+            <td>
+              <div class="receiptUploadRow">
+                <input class="priceInput" type="text" name="price" id="price" ng-model="price">
+              </div>
+            </td>
+            <td>
+              <button type="button" class="" ng-click="removePrice($index)" name="button"><span class="glyphicon glyphicon-trash purchaseDeleteButton"></span></button>
+            </td>
+          </tr>
+        </table>
+        <button type="button" ng-click="login()">Submit</button>
 
-        </fieldset>
-      </form>
-      <div class="receiptImageContainer">
-        <div class="receiptPlaceholder" ng-show="!imageUrl">
-          <p>Your uploaded receipt will appear here!</p>
-        </div>
-        <img ng-src="{{imageUrl}}" class="receiptImage">
-
+      </fieldset>
+    </form>
+    <div class="receiptImageContainer">
+      <div class="receiptPlaceholder" ng-show="!imageUrl">
+        <p>Your uploaded receipt will appear here!</p>
       </div>
+      <img ng-src="{{imageUrl}}" class="receiptImage">
+
     </div>
+  </div>
   </div>
   </div>
 
