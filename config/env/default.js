@@ -2,8 +2,8 @@
 
 module.exports = {
   app: {
-    title: 'MEAN.JS',
-    description: 'Full-Stack JavaScript with MongoDB, Express, AngularJS, and Node.js',
+    title: 'SmartCart',
+    description: 'Financial app for tracking grocery expenses',
     keywords: 'mongodb, express, angularjs, node.js, mongoose, passport',
     googleAnalyticsTrackingID: process.env.GOOGLE_ANALYTICS_TRACKING_ID || 'GOOGLE_ANALYTICS_TRACKING_ID'
   },
@@ -28,7 +28,7 @@ module.exports = {
   sessionKey: 'sessionId',
   sessionCollection: 'sessions',
   logo: 'modules/core/client/img/brand/logo.png',
-  favicon: 'modules/core/client/img/brand/favicon.ico',
+  favicon: 'modules/core/client/img/brand/favicon2.ico',
   uploads: {
     profileUpload: {
       dest: './modules/users/client/img/profile/uploads/', // Profile upload destination path
