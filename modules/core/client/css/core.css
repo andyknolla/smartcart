@@ -41,6 +41,7 @@ a:hover .header-profile-image {
 body {
   background: white;
   width: 90%;
+  font-family: 'Helvetica Neue', sans-serif;
 }
 p {
   font-size: 1.7rem;
@@ -117,16 +118,27 @@ ul {
 .demobox {
   display: flex;
   flex-direction: row;
-  width: 80%;
+  width: 85%;
 }
 .demo2 {
   display: flex;
   flex-direction: column;
-  margin-left: 20px;
+  margin-left: 25px;
 }
 .demo3 {
   display: flex;
   flex-direction: column;
+  padding: 15px;
+}
+.demo3 ul {
+  margin-top: 10px;
+}
+.demo3 li:nth-child(2) {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.demo3  p:first-child {
+  font-family: ;
 }
 .demo4 {
   display: flex;
@@ -135,10 +147,18 @@ ul {
 .demo5 {
   display: flex;
   flex-direction: column;
+  padding: 15px;
 }
-.demo5 p {
+.demo5 > p {
   display: flex;
-  align-self:flex-end;
+  align-self:;
+  font-size: 1em;
+  margin-top: -15px;
+}
+.demo4 small {
+  color: gray;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .demo6 {
   margin-left: 10px;
@@ -148,7 +168,20 @@ ul {
   flex-direction: row;
 }
 .demo8 p {
+  display: flex;
   margin-right: 10px;
+  font-size: 1em;
+}
+.demo8 small {
+  color: gray;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.demobox img {
+  margin-left:15px;
+}
+.demo8 img {
+  margin-top: -20px;
 }
 .filepickerBox {
 
@@ -162,6 +195,10 @@ ul {
 }
 .receiptDate {
   margin: 10px 0 10px 0;
+}
+.receiptUpload {
+  display: flex;
+  flex-direction: row;
 }
 .receiptUploadRow {
   margin-bottom: 3px;

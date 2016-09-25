@@ -19,118 +19,124 @@
           <h2> Upload a receipt</h2>
           <p>Save yourself some typing by uploading a photo of your receipt</p>
           <div class="myfilepicker">
-            <input filepicker type="filepicker-dragdrop" data-fp-services="computer,facebook,dropbox,url,box" on-success="onSuccess(event.fpfile)" />
+            <input filepicker type="filepicker-dragdrop" data-fp-services="computer,facebook,dropbox, instagram, imagesearch,url,box" on-success="onSuccess(event.fpfile)" />
           </div>
         </div>
       </div>
 
       <div class="demo2">
         <div class="demo3">
-          <p> Try it out!</p>
-          <p>Don't have a receipt image saved on your computer? Just grab an image URL from a Google image search and click on Link&lpar;URL&rpar;. Or, here are a couple examples.</p>
+          <p class="lead"> Try it out!</p>
+          <p>Don't have a receipt image saved on your computer? Just grab an image URL from a Google image search and click on Link&lpar;URL&rpar;.
+            <br> Or, use the examples below</p>
           <ul>
-            <li>Copy one of them</li>
-            <li>click on "Upload a receipt", "Pick File"</li>
-            <li>then click on the Link&lpar;URL&rpar; option on the left side of the pop-up.</li>
+            <li><span class="glyphicon glyphicon-copy"></span>&nbsp; Copy one of them</li>
+            <li><span class="glyphicon glyphicon-hand-left"></span> &nbsp;click on "Upload a receipt", "Pick File"</li>
+            <li><span class="glyphicon glyphicon-link"></span>&nbsp;then click on the Link&lpar;URL&rpar; option on the left side of the pop-up.</li>
           </ul>
         </div>
 
         <div class="demo4">
+          <div class="demo5">
+            <p>example
+              <br> image
+              <br> url&colon;
+              <br>
+              <a href="http://66.media.tumblr.com/tumblr_l9ncmsIjiM1qz4tu7o1_500.jpg"><small>
+                http://66.media.tumblr.com/tumblr_l9ncmsIjiM1qz4tu7o1_500.jpg
+              </small></a>
+            </p>
 
-
-
-            <div class="demo5">
-              <p>example image url&colon;<br> <small>http://66.media.tumblr.com/tumblr_l9ncmsIjiM1qz4tu7o1_500.jpg</small></p>
-
-
-              <div class="demo8">
-                <p>example image url&colon;<br> <small>http://vignette2.wikia.nocookie.net/groceryreceipts/images/<br>8/80/Grocery_receipts_001.jpg/revision/latest?cb=20111106201148</small></p>
-                <img height="100px" src="http://vignette2.wikia.nocookie.net/groceryreceipts/images/8/80/Grocery_receipts_001.jpg/revision/latest?cb=20111106201148">
-              </div>
-
+            <div class="demo8">
+              <p>example
+                <br> image
+                <br> url&colon;
+                <a href="http://i2.photobucket.com/albums/y7/bayoutitan/Receipt2.jpg"><small>
+                http://i2.photobucket.com/albums/y7/bayoutitan/Receipt2.jpg
+              </small></a>
+              </p>
+              <a href="http://i2.photobucket.com/albums/y7/bayoutitan/Receipt2.jpg"><img height="100px" src="http://i2.photobucket.com/albums/y7/bayoutitan/Receipt2.jpg"></a>
             </div>
 
-            <div class="demo6">
-              <img width="50px" height="100px" src="http://66.media.tumblr.com/tumblr_l9ncmsIjiM1qz4tu7o1_500.jpg">
-            </div>
           </div>
 
+          <div class="demo6">
+            <a href="http://66.media.tumblr.com/tumblr_l9ncmsIjiM1qz4tu7o1_500.jpg"><img width="50px" height="100px" src="http://66.media.tumblr.com/tumblr_l9ncmsIjiM1qz4tu7o1_500.jpg"></a>
+          </div>
         </div>
+
       </div>
-
-
     </div>
 
 
 
-  <!-- <div filepicker-preview url="" style="width:90%; height:500px"></div> -->
 
-  <!--   receipt read upload form    -->
 
-  <div class="well" id="receiptUpload">
 
-    <form name="articleForm" id="receiptUpload" class="" ng-submit="create(articleForm)" novalidate>
-      <fieldset>
-        <div class="receiptDate">
-          <h2>Data from your uploaded receipt</h2>
-          <label for="date">Date for this receipt: </label>
-          <p ng-show="imageUrl">Now go through and correct any mistakes</p>
-          <input type="date" name="date" id="date" ng-model="date">
-        </div>
-        <table class="receiptUploadTable">
-          <tr>
-            <th class="tableheadCol">Item Name</th>
-            <th class="tableheadCol">Category</th>
-            <th class="tableheadPrice">Price</th>
-            <th>Delete</th>
-          </tr>
-          <tr ng-repeat="price in prices track by $index" class="receiptUploadRow" ng-class-even="'grayrow'">
-            <td>
-              <input name="name" type="text" ng-model="name" id="name" placeholder="item name" required>
-              <!-- <div ng-messages="articleForm.name.$error" role="alert">
+    <!-- <div filepicker-preview url="" style="width:90%; height:500px"></div> -->
+
+    <!--   receipt read upload form    -->
+
+    <div class="well receiptUpload">
+
+      <form name="articleForm" class="" ng-submit="create(articleForm)" novalidate>
+        <fieldset>
+          <div class="receiptDate">
+            <h2>Data from your uploaded receipt</h2>
+            <label for="date">Date for this receipt: </label>
+            <p ng-show="imageUrl">Now go through and correct any mistakes</p>
+            <input type="date" name="date" id="date" ng-model="date">
+          </div>
+          <table class="receiptUploadTable">
+            <tr>
+              <th class="tableheadCol">Item Name</th>
+              <th class="tableheadCol">Category</th>
+              <th class="tableheadPrice">Price</th>
+              <th>Delete</th>
+            </tr>
+            <tr ng-repeat="price in prices track by $index" class="receiptUploadRow" ng-class-even="'grayrow'">
+              <td>
+                <input name="name" type="text" ng-model="name" id="name" placeholder="item name" required>
+                <!-- <div ng-messages="articleForm.name.$error" role="alert">
                 <p class="help-block error-text" ng-message="required">item name is required.</p>
               </div> -->
-            </td>
-            <td>
-              <select name="category" ng-model="category" id="category" class="categoryInput" cols="30" rows="10" placeholder="category">
-                <option value="" disabled selected>category</option>
-                <option value="Produce">Produce</option>
-                <option value="Frozen">Frozen</option>
-                <option value="Junk">Junk</option>
-                <option value="Meat">Meat</option>
-                <option value="Beverages">Beverages</option>
-                <option value="Home products">Home Products</option>
-                <option value="Dry Goods">Dry Goods</option>
-              </select>
-            </td>
-            <td>
-              <div class="receiptUploadRow">
-                <input class="priceInput" type="text" name="price" id="price" ng-model="price">
-              </div>
-            </td>
-            <td>
-              <button type="button" class="" ng-click="removePrice($index)" name="button"><span class="glyphicon glyphicon-trash purchaseDeleteButton"></span></button>
-            </td>
-          </tr>
-        </table>
-        <button type="button" ng-click="login()">Submit</button>
+              </td>
+              <td>
+                <select name="category" ng-model="category" id="category" class="categoryInput" cols="30" rows="10" placeholder="category">
+                  <option value="" disabled selected>category</option>
+                  <option value="Produce">Produce</option>
+                  <option value="Frozen">Frozen</option>
+                  <option value="Junk">Junk</option>
+                  <option value="Meat">Meat</option>
+                  <option value="Beverages">Beverages</option>
+                  <option value="Home products">Home Products</option>
+                  <option value="Dry Goods">Dry Goods</option>
+                </select>
+              </td>
+              <td>
+                <div class="receiptUploadRow">
+                  <input class="priceInput" type="text" name="price" id="price" ng-model="price">
+                </div>
+              </td>
+              <td>
+                <button type="button" class="" ng-click="removePrice($index)" name="button"><span class="glyphicon glyphicon-trash purchaseDeleteButton"></span></button>
+              </td>
+            </tr>
+          </table>
+          <button type="button" ng-click="login()">Submit</button>
 
-      </fieldset>
-    </form>
-    <div class="receiptImageContainer">
-      <div class="receiptPlaceholder" ng-show="!imageUrl">
-        <p>Your uploaded receipt will appear here!</p>
+        </fieldset>
+      </form>
+
+      <div class="receiptImageContainer">
+        <div class="receiptPlaceholder" ng-show="!imageUrl">
+          <p>Your uploaded receipt will appear here!</p>
+        </div>
+        <img ng-src="{{imageUrl}}" class="receiptImage">
+
       </div>
-      <img ng-src="{{imageUrl}}" class="receiptImage">
-
     </div>
   </div>
-  </div>
-  </div>
-
-
-  </div>
-
 
   <!-- <img class="homeGraph" src="http://community.microstrategy.com/legacyfs/online/UploadContent/45k/TN42448_TN42448_0.PNG" width="700px" height="300px" alt="" /> -->
 
