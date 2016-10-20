@@ -5,8 +5,8 @@
  */
 var _ = require('lodash'),
   defaultAssets = require('./config/assets/default'),
-  testAssets = require('./config/assets/test'),
-  testConfig = require('./config/env/test'),
+  //testAssets = require('./config/assets/test'),
+  //testConfig = require('./config/env/test'),
   fs = require('fs'),
   path = require('path');
 
@@ -34,7 +34,7 @@ module.exports = function (grunt) {
       },
       serverJS: {
         files: _.union(defaultAssets.server.gruntConfig, defaultAssets.server.allJS),
-        tasks: ['jshint'],
+      //  tasks: ['jshint'],
         options: {
           livereload: true
         }
@@ -47,28 +47,28 @@ module.exports = function (grunt) {
       },
       clientJS: {
         files: defaultAssets.client.js,
-        tasks: ['jshint'],
+      //  tasks: ['jshint'],
         options: {
           livereload: true
         }
       },
       clientCSS: {
         files: defaultAssets.client.css,
-        tasks: ['csslint'],
+      //  tasks: ['csslint'],
         options: {
           livereload: true
         }
       },
       clientSCSS: {
         files: defaultAssets.client.sass,
-        tasks: ['sass', 'csslint'],
+      //  tasks: ['sass', 'csslint'],
         options: {
           livereload: true
         }
       },
       clientLESS: {
         files: defaultAssets.client.less,
-        tasks: ['less', 'csslint'],
+    //    tasks: ['less', 'csslint'],
         options: {
           livereload: true
         }
@@ -91,29 +91,29 @@ module.exports = function (grunt) {
         logConcurrentOutput: true
       }
     },
-    jshint: {
-      all: {
-        src: _.union(defaultAssets.server.gruntConfig, defaultAssets.server.allJS, defaultAssets.client.js, testAssets.tests.server, testAssets.tests.client, testAssets.tests.e2e),
-        options: {
-          jshintrc: true,
-          node: true,
-          mocha: true,
-          jasmine: true
-        }
-      }
-    },
-    eslint: {
-      options: {},
-      target: _.union(defaultAssets.server.gruntConfig, defaultAssets.server.allJS, defaultAssets.client.js, testAssets.tests.server, testAssets.tests.client, testAssets.tests.e2e)
-    },
-    csslint: {
-      options: {
-        csslintrc: '.csslintrc'
-      },
-      all: {
-        src: defaultAssets.client.css
-      }
-    },
+    // jshint: {
+    //   all: {
+    //     src: _.union(defaultAssets.server.gruntConfig, defaultAssets.server.allJS, defaultAssets.client.js, testAssets.tests.server, testAssets.tests.client, testAssets.tests.e2e),
+    //     options: {
+    //       jshintrc: true,
+    //       node: true,
+    //       mocha: true,
+    //       jasmine: true
+    //     }
+    //   }
+    // },
+    // eslint: {
+    //   options: {},
+    //   target: _.union(defaultAssets.server.gruntConfig, defaultAssets.server.allJS, defaultAssets.client.js, testAssets.tests.server, testAssets.tests.client, testAssets.tests.e2e)
+    // },
+    // csslint: {
+    //   options: {
+    //     csslintrc: '.csslintrc'
+    //   },
+    //   all: {
+    //     src: defaultAssets.client.css
+    //   }
+    // },
     ngAnnotate: {
       production: {
         files: {
@@ -175,46 +175,46 @@ module.exports = function (grunt) {
         }
       }
     },
-    mochaTest: {
-      src: testAssets.tests.server,
-      options: {
-        reporter: 'spec',
-        timeout: 10000
-      }
-    },
-    mocha_istanbul: {
-      coverage: {
-        src: testAssets.tests.server,
-        options: {
-          print: 'detail',
-          coverage: true,
-          require: 'test.js',
-          coverageFolder: 'coverage/server',
-          reportFormats: ['cobertura','lcovonly'],
-          check: {
-            lines: 40,
-            statements: 40
-          }
-        }
-      }
-    },
-    karma: {
-      unit: {
-        configFile: 'karma.conf.js'
-      }
-    },
-    protractor: {
-      options: {
-        configFile: 'protractor.conf.js',
-        noColor: false,
-        webdriverManagerUpdate: true
-      },
-      e2e: {
-        options: {
-          args: {} // Target-specific arguments
-        }
-      }
-    },
+    // mochaTest: {
+    //   src: testAssets.tests.server,
+    //   options: {
+    //     reporter: 'spec',
+    //     timeout: 10000
+    //   }
+    // },
+    // mocha_istanbul: {
+    //   coverage: {
+    //     src: testAssets.tests.server,
+    //     options: {
+    //       print: 'detail',
+    //       coverage: true,
+    //       require: 'test.js',
+    //       coverageFolder: 'coverage/server',
+    //       reportFormats: ['cobertura','lcovonly'],
+    //       check: {
+    //         lines: 40,
+    //         statements: 40
+    //       }
+    //     }
+    //   }
+    // },
+    // karma: {
+    //   unit: {
+    //     configFile: 'karma.conf.js'
+    //   }
+    // },
+    // protractor: {
+    //   options: {
+    //     configFile: 'protractor.conf.js',
+    //     noColor: false,
+    //     webdriverManagerUpdate: true
+    //   },
+    //   e2e: {
+    //     options: {
+    //       args: {} // Target-specific arguments
+    //     }
+    //   }
+    // },
     copy: {
       localConfig: {
         src: 'config/env/local.example.js',
@@ -318,4 +318,4 @@ module.exports = function (grunt) {
 
   // Run the project in production mode
   grunt.registerTask('prod', ['build', 'env:prod', 'mkdir:upload', 'copy:localConfig', 'concurrent:default']);
-};
+}
