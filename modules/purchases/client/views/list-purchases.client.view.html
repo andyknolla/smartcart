@@ -1,0 +1,37 @@
+<section ng-controller="PurchasesController" ng-init="find()">
+  <div class="page-header">
+    <h1>Purchases</h1>
+  </div>
+  <div>
+    <table class="table table-striped purchaseTable">
+      <tr>
+        <th>product name</th>
+        <th>category</th>
+        <th>price</th>
+      </tr>
+
+      <tr ng-repeat="purchase in purchases | orderBy : 'category'" ui-sref="purchases.view({purchaseId: purchase._id})">
+        <!-- <a ng-repeat="purchase in purchases" ui-sref="purchases.view({purchaseId: purchase._id})">  -->
+        <td class="tableItem" ng-bind="purchase.name"> {{ purchase.name }}</td>
+        <td class="tableItem" ng-bind="purchase.category"></td>
+        <td class="tableItemPrice" ng-bind="purchase.price"></td>
+      </tr>
+    </table>
+    <!-- <td>
+            <span ng-show="authentication.user._id == purchase.user._id">
+              <a class="btn btn-primary" ui-sref="purchases.edit({purchaseId: purchase._id})">
+                <i class="glyphicon glyphicon-edit"></i>
+              </a>
+              <a class="btn btn-primary" ng-click="remove();">
+                <i class="glyphicon glyphicon-trash"></i>
+              </a>
+            </span>
+          </td>
+        </a> -->
+
+
+  </div>
+  <div class="alert alert-warning text-center" ng-if="purchases.$resolved && !purchases.length">
+    No purchases yet, why don't you <a ui-sref="purchases.create">create one</a>?
+  </div>
+</section>

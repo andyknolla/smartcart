@@ -46,7 +46,7 @@
       Authentication = _Authentication_;
       CategoriesService = _CategoriesService_;
 
-      // create mock article
+      // create mock purchase
       mockCategory = new CategoriesService({
         _id: '525a8422f6d0f87f0e407a33',
         name: 'Category Name'

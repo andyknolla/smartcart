@@ -1,0 +1,21 @@
+<!--individual purchase -->
+
+<section ng-controller="PurchasesController" ng-init="findOne()">
+
+  <!-- <div class="page-header">
+    <h1 ng-bind="purchase.title"></h1>
+  </div> -->
+  <!--  edit and delete buttons  -->
+  <div class="pull-right" ng-show="authentication.user._id == purchase.user._id">
+    <a class="btn btn-primary" ui-sref="purchases.edit({purchaseId: purchase._id})">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" ng-click="remove();">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <span class="lead">Item name: </span><span class="lead" ng-bind="purchase.name"></span><br>
+  <span class="lead">Category: </span><span class="lead" ng-bind="purchase.category"></span><br>
+  <span class="lead">Price: $</span><span class="lead" ng-bind="purchase.price"></span>
+
+</section>

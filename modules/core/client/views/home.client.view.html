@@ -9,7 +9,7 @@
   </div>
   <p class="homeGraphDescription">Smart Cart uses Optical Character Recognition technology to help you record your purchase information</p>
 
-  <div ng-controller="ArticlesController">
+  <div ng-controller="PurchasesController">
 
 
     <div class="demobox">
@@ -79,7 +79,7 @@
 
     <div class="well receiptUpload">
 
-      <form name="articleForm" class="" ng-submit="create(articleForm)" novalidate>
+      <form name="purchaseForm" class="" ng-submit="create(purchaseForm)" novalidate>
         <fieldset>
           <div class="receiptDate">
             <h2>Data from your uploaded receipt</h2>
@@ -97,7 +97,7 @@
             <tr ng-repeat="price in prices track by $index" class="receiptUploadRow" ng-class-even="'grayrow'">
               <td>
                 <input name="name" type="text" ng-model="name" id="name" placeholder="item name" required>
-                <!-- <div ng-messages="articleForm.name.$error" role="alert">
+                <!-- <div ng-messages="purchaseForm.name.$error" role="alert">
                 <p class="help-block error-text" ng-message="required">item name is required.</p>
               </div> -->
               </td>

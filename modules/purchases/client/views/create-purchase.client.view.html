@@ -1,0 +1,103 @@
+<section ng-controller="PurchasesController">
+  <div class="page-header">
+    <h1>Enter Purchases</h1>
+  </div>
+  <div class="well receiptManualEntry">
+    <h2>Enter purchases manually...</h2>
+    <form name="purchaseForm" class="" ng-submit="create(purchaseForm.$valid)" novalidate>
+      <fieldset>
+        <label for="name">Name</label>
+        <input name="name" type="text" ng-model="name" id="name" class="" placeholder="item name" required>
+        <label for="category">Category</label>
+        <select name="category" ng-model="category" id="category" class="" cols="30" rows="10" placeholder="category">
+          <option value="" disabled selected>category</option>
+          <option value="Produce">Produce</option>
+          <option value="Frozen">Frozen</option>
+          <option value="Meat">Meat</option>
+          <option value="Junk">Junk</option>
+          <option value="Beverages">Beverages</option>
+          <option value="Dry goods">Dry goods</option>
+          <option value="Home products">Home Products</option>
+
+        </select>
+        <label for="price">Price</label>
+        <input type="text" name="price" ng-model="price" id="price" class="priceInput" cols="30" rows="10" placeholder="price">
+        <label for="date">Date</label>
+        <input type="date" name="date" id="date" ng-model="date">
+        <input type="submit" class="btn btn-default">
+        <strong ng-bind="error"></strong>
+      </fieldset>
+    </form>
+  </div>
+
+  <!-- upload receipt -->
+  <div class="well filepickerBox">
+    <h2> Or upload a receipt</h2>
+    <p>Save yourself some typing by uploading a photo of your receipt</p>
+    <div>
+      <input filepicker type="filepicker-dragdrop" data-fp-services="computer,facebook,dropbox,box" on-success="onSuccess(event.fpfile)" />
+    </div>
+  </div>
+
+  <!-- <div filepicker-preview url="" style="width:90%; height:500px"></div> -->
+
+  <!--   receipt read upload form    -->
+
+  <div class="well receiptUpload">
+    <form name="purchaseForm" class="" ng-submit="create(purchaseForm)" novalidate>
+      <fieldset>
+        <div class="receiptDate">
+          <h2>Data from your uploaded receipt</h2>
+          <label for="date">Date for this receipt: </label>
+          <input type="date" name="date" id="date" ng-model="date">
+        </div>
+        <table class="receiptUploadTable">
+          <tr>
+            <th class="tableheadCol">Item Name</th>
+            <th class="tableheadCol">Category</th>
+            <th class="tableheadPrice">Price</th>
+            <th>Delete</th>
+          </tr>
+          <tr ng-repeat="price in prices track by $index" class="receiptUploadRow" ng-class-even="'grayrow'">
+            <td>
+              <input name="name" type="text" ng-model="name" id="name" placeholder="item name" required>
+              <!-- <div ng-messages="purchaseForm.name.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">item name is required.</p>
+            </div> -->
+            </td>
+            <td>
+              <select name="category" ng-model="category" id="category" class="categoryInput" cols="30" rows="10" placeholder="category">
+                <option value="" disabled selected>category</option>
+                <option value="Produce">Produce</option>
+                <option value="Frozen">Frozen</option>
+                <option value="Junk">Junk</option>
+                <option value="Meat">Meat</option>
+                <option value="Beverages">Beverages</option>
+                <option value="Home products">Home Products</option>
+                <option value="Dry Goods">Dry Goods</option>
+              </select>
+            </td>
+            <td>
+              <div class="receiptUploadRow">
+                <input class="priceInput" type="text" name="price" id="price" ng-model="price">
+              </div>
+            </td>
+            <td>
+              <button type="button" class="" ng-click="removePrice($index)" name="button"><span class="glyphicon glyphicon-trash purchaseDeleteButton"></span></button>
+            </td>
+          </tr>
+        </table>
+        <input form="receiptUpload" type="submit" class="btn btn-default">
+
+      </fieldset>
+    </form>
+    <div class="receiptImageContainer">
+      <div class="receiptPlaceholder" ng-show="!imageUrl">
+        <p>Your uploaded receipt will appear here!</p>
+      </div>
+      <img ng-src="{{imageUrl}}" class="receiptImage">
+
+    </div>
+  </div>
+
+</section>

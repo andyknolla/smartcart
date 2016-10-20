@@ -65,10 +65,10 @@
             $state = _$state_;
             $state.previous = {
               state: {
-                name: 'articles.create'
+                name: 'purchases.create'
               },
               params: {},
-              href: '/articles/create'
+              href: '/purchases/create'
             };
 
             spyOn($state, 'transitionTo');
